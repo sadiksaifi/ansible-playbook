@@ -1,0 +1,40 @@
+- name: Install core programs.
+  become: true
+  pacman: 
+    name:
+      - alsa-utils
+      - base-devel
+      - bat
+      - btrfs-progs
+      - dosfstools
+      - exa
+      - fd
+      - ffmpeg
+      - fzf
+      - git
+      - gnome-keyring
+      - intel-ucode
+      - lf
+      - mpv
+      - ntfs-3g
+      - p7zip
+      - pipewire
+      - pipewire-alsa
+      - pipewire-audio
+      - pipewire-jack
+      - pipewire-pulse
+      - polkit-gnome
+      - ripgrep
+      - rsync
+      - sxiv
+      - tar
+      - tlp
+      - tmux
+      - unzip
+      - wireplumber
+      - zathura
+      - zathura-pdf-mupdf
+      - zip
+  tags: 
+    - install
+    - core

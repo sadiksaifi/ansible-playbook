@@ -1,0 +1,12 @@
+- name: Install n - node version manager
+  shell: paru -S --noconfirm --needed nodejs-n
+  tags:
+    - node
+    - install
+
+- name: Installing latest node & npm
+  become: true
+  shell: n current
+  tags:
+    - node
+    - install

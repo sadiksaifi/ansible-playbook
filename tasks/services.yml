@@ -1,0 +1,9 @@
+- name: Enabling tlp service
+  become: true
+  shell: systemctl enable tlp
+  tags: service
+
+- name: Enabling auto-cpufreq service
+  become: true
+  shell: systemctl enable auto-cpufreq
+  tags: service

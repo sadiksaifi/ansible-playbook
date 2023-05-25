@@ -1,0 +1,26 @@
+- name: Cloning dotfiles repo
+  ansible.builtin.git:
+    repo: 'https://github.com/sadikeey/dotfiles.git'
+    separate_git_dir: "{{ lookup('env', 'HOME') }}/.dotfiles.git"
+    dest: "/tmp/tmpdotfiles"
+    recursive: yes
+    update: yes
+    accept_hostkey: yes
+    version: main
+  tags:
+    - dotfiles
+
+- name: Syncing dotfiles.
+  synchronize:
+    src: "/tmp/tmpdotfiles/"
+    dest: "{{ lookup('env', 'HOME') }}/"
+    recursive: true
+    rsync_opts:
+      - "--exclude=.git"
+  tags:
+    - dotfiles
+
+- name: Hide untracked dotfiles.
+  shell: /usr/bin/git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME config --local status.showUntrackedFiles no
+  tags:
+    - dotfiles

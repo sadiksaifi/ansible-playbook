@@ -1,0 +1,41 @@
+- name: Install zsh
+  become: true
+  pacman: name=zsh
+  tags: 
+    - zsh
+    - install
+
+- name: Change default shell to zsh
+  become: true
+  shell: chsh -s "$(which zsh)" sdk
+  tags: 
+    - zsh
+
+- name: Cloning zap - zsh plugin manager
+  ansible.builtin.git:
+    repo: 'https://github.com/zap-zsh/zap'
+    dest: "/tmp/zap"
+    version: 'release-v1'
+    recursive: yes
+    update: yes
+    accept_hostkey: yes
+  tags:
+    - zsh
+
+- name: Installing zap - zsh plugin manager
+  shell: zsh /tmp/zap/install.zsh
+  tags: 
+    - zsh
+
+- name: Install starship prompt
+  become: true
+  pacman: name=starship
+  tags: 
+    - zsh
+
+- name: Append starship configuration to .zshrc
+  lineinfile:
+    path: ~/.zshrc
+    line: 'eval "$(starship init zsh)"'
+  tags: 
+    - zsh

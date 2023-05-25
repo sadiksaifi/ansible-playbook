@@ -1,0 +1,22 @@
+- hosts: localhost
+  vars:
+    source_key: "./.ssh/id_rsa"
+    dest_key: "{{ lookup('env', 'HOME') }}/.ssh/id_rsa"
+    personal: "{{ lookup('env', 'HOME') }}/Personal"
+  pre_tasks: 
+    - name: Update pacman
+      become: true
+      pacman: 
+        update_cache: true
+      tags: install
+  tasks:
+    - include: tasks/core.yml
+    - include: tasks/zsh.yml
+    - include: tasks/ssh.yml
+    - include: tasks/nvim.yml
+    - include: tasks/aur.yml
+    - include: tasks/dotfiles.yml
+    - include: tasks/node.yml
+    - include: tasks/fonts.yml
+    - include: tasks/desktop.yml
+    - include: tasks/services.yml

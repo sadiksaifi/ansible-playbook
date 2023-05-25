@@ -1,0 +1,16 @@
+- name: Install neovim
+  become: true
+  pacman: name=neovim
+  tags:
+    - nvim
+    - install
+- name: Syncing nvim configuration
+  ansible.builtin.git:
+    repo: 'https://github.com/sadikeey/nvim.git'
+    dest: "{{ lookup('env', 'HOME') }}/.config/nvim"
+    recursive: yes
+    update: yes
+    accept_hostkey: yes
+    version: master
+  tags:
+    - nvim
