@@ -19,6 +19,7 @@
       - wayland
       - wayland-protocols
       - wl-clipboard
+      - wtype
       - xorg-xwayland
   tags: 
     - install
