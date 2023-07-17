@@ -10,13 +10,13 @@
         update_cache: true
       tags: install
   tasks:
-    - include: tasks/core.yml
-    - include: tasks/zsh.yml
-    - include: tasks/ssh.yml
-    - include: tasks/nvim.yml
-    - include: tasks/aur.yml
-    - include: tasks/dotfiles.yml
-    - include: tasks/node.yml
-    - include: tasks/fonts.yml
-    - include: tasks/desktop.yml
-    - include: tasks/services.yml
+    - include: tasks/core.yaml
+    - include: tasks/zsh.yaml
+    - include: tasks/ssh.yaml
+    - include: tasks/nvim.yaml
+    - include: tasks/aur.yaml
+    - include: tasks/dotfiles.yaml
+    - include: tasks/node.yaml
+    - include: tasks/fonts.yaml
+    - include: tasks/desktop.yaml
+    - include: tasks/services.yaml
