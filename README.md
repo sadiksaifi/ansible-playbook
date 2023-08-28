@@ -17,7 +17,7 @@ ansible-pull -U https://github.com/sadikeey/ansible-playbook.git
 
 2. Run the Playbook: Execute
 ```sh
-ansible-playbook --ask-become-pass --ask-vault-password main.yml
+ansible-playbook --ask-become-pass --ask-vault-password main.yaml
 ```
 
 3. Verification: Check that the Arch Linux system is set up according to your workflow requirements.
